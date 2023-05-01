@@ -1,19 +1,29 @@
 import React from "react";
-import { useNavigate} from "react-router-dom";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import {
+  Container,
+  Typography,
+  Button,
+  Grid,
+  TextField,
+} from "@material-ui/core";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    // Redirect to login page
-    navigate("/login");
+  const handleStudentLogInClick = () => {
+    navigate("/studentlogin");
   };
 
   const handleRegisterClick = () => {
     // Redirect to register page
     navigate("/StudentRegistrationForm");
   };
+
+  const handleAdminLoginClick = () => {
+    navigate("/adminlogin");
+  };
+
 
   return (
     <Container maxWidth="sm">
@@ -35,22 +45,16 @@ const Home = () => {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={handleLoginClick}
+            onClick={handleStudentLogInClick}
           >
             Student Login
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={handleLoginClick}
-          >
-            Admin Login
-          </Button>
+            </Button>
         </Grid>
       </Grid>
+     
+
+
+      <Grid/>
       <Typography variant="h6" align="center" gutterBottom>
         Register
       </Typography>
@@ -66,6 +70,21 @@ const Home = () => {
             onClick={handleRegisterClick}
           >
             Register as Student
+          </Button>
+        </Grid>
+      </Grid>
+      <Typography variant="h6" align="center" gutterBottom>
+      Login As ADmin
+        </Typography>
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={handleAdminLoginClick}
+          >
+           Admin Login
           </Button>
         </Grid>
       </Grid>
